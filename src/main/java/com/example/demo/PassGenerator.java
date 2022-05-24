@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
+
 //Создать генератор паролей, который будет генерировать случайные неповторяющиеся пароли по следующим правилам:
 //Пароль состоит из 8 символов
 //В пароле допускаются только латинские большие и маленькие буквы, цифры и символ подчеркивания
@@ -59,6 +61,7 @@ public class PassGenerator {
 
         System.out.println("Your Password is:");
         //calling method to display Password
+        PasswordList.sort(Comparator.reverseOrder());
         displayPassword(PasswordList);
     }
     //Method to fill the list with English Alphabet A-a, Z-z
