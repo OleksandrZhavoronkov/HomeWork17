@@ -30,20 +30,33 @@ public class PassGenerator {
         ArrayList<String> PasswordList = new ArrayList<>();
         //Function to fill the Passwordlist in
         for (int x = 0; x < input; x++) {
-            int v = (int) (Math.random() * 3); // random digit from 0-2
-            // if digit on previous step is 0 then adding random Letter from letters list
-            if (v == 0) {
+            if (x == 0) {
                 int b = (int) (Math.random() * 52);
-                PasswordList.add(String.valueOf(letterList.get(b)));
-                //if digit on previous step is 1 then adding random Number from Numbers list
-            } else if (v == 1) {
+                PasswordList.add(String.valueOf(letterList.get(b)).toUpperCase());
+            } else if (x == 1) {
                 int d = (int) (Math.random() * 10);
                 PasswordList.add(String.valueOf(numberList.get(d)));
-                //if digit on previous step is 2 then adding _ to the list
+            } else if (x == 2) {
+                int b = (int) (Math.random() * 52);
+                PasswordList.add(String.valueOf(letterList.get(b)).toLowerCase());
             } else {
-                PasswordList.add(String.valueOf(lowDashList.get(0)));
+                    int v = (int) (Math.random() * 3); // random digit from 0-2
+                    // if digit on previous step is 0 then adding random Letter from letters list
+                    if (v == 0) {
+                        int b = (int) (Math.random() * 52);
+                        PasswordList.add(String.valueOf(letterList.get(b)));
+                        //if digit on previous step is 1 then adding random Number from Numbers list
+                    } else if (v == 1) {
+                        int d = (int) (Math.random() * 10);
+                        PasswordList.add(String.valueOf(numberList.get(d)));
+                        //if digit on previous step is 2 then adding _ to the list
+                    } else {
+                        PasswordList.add(String.valueOf(lowDashList.get(0)));
+                    }
+                }
+
             }
-        }
+
         System.out.println("Your Password is:");
         //calling method to display Password
         displayPassword(PasswordList);
